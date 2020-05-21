@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: landings\n"
+"POT-Creation-Date: 2020-02-29 12:34+0000\n"
+"PO-Revision-Date: 2020-02-29 12:34+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _;_e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: footer.php:20
+msgid "All Rights reserved"
+msgstr "All Rights reserved"
+
+#: footer.php:28 header.php:59
+msgid "About Us"
+msgstr "About us"
+
+#: footer.php:34 header.php:183
+msgid "Privacy Policy"
+msgstr "Privacy Policy"
+
+#: header.php:8
+msgid "Campsited - the easy way to book a camping holiday"
+msgstr "Campsited - the easy way to book a camping holiday"
+
+#: header.php:53 header.php:120
+msgid "Special offers"
+msgstr "Special offers"
+
+#: header.php:65 header.php:132
+msgid "FAQs"
+msgstr "FAQs"
+
+#: header.php:71 header.php:138
+msgid "My wish list"
+msgstr "My wish list"
+
+#: header.php:77 header.php:144
+msgid "My Booking"
+msgstr "My Booking"
+
+#: header.php:83 header.php:150
+msgid "Site sign in"
+msgstr "Site sign in"
+
+#: header.php:126
+msgid "About us"
+msgstr "About us"
+
+#: header.php:177
+msgid "Blog"
+msgstr "Blog"
+
+#: header.php:189
+msgid "Customer Terms"
+msgstr "Customer Terms"
+
+#: template-parts/content/content-single.php:79
+msgid "Choose from"
+msgstr "Choose from"
+
+#: template-parts/content/content-single.php:79
+msgid "lots of"
+msgstr "lots of"
+
+#: template-parts/content/content-single.php:79
+msgid "great campsites"
+msgstr "great campsites"
+
+#: template-parts/content/content-single.php:92
+msgid "View all"
+msgstr "View all"
+
+#: template-parts/content/content-single.php:98
+msgid "We are here to help you plan your perfect holiday"
+msgstr "We are here to help you plan your perfect holiday"
+
+#: template-parts/content/content-single.php:116
+msgid "Best Prices"
+msgstr "Best Prices"
+
+#: template-parts/content/content-single.php:117
+msgid "No hidden fees"
+msgstr "No hidden fees"
+
+#: template-parts/content/content-single.php:125
+msgid "Largest Choice"
+msgstr "Largest Choice"
+
+#: template-parts/content/content-single.php:126
+msgid "Over 10,000 rentals and pitches"
+msgstr "Over 10,000 rentals and pitches"
+
+#: template-parts/content/content-single.php:134
+msgid "Thousands of Reviews"
+msgstr "Thousands of Reviews"
+
+#: template-parts/content/content-single.php:135
+msgid "From real guests"
+msgstr "From real guests"
+
+#: template-parts/content/content-single.php:143
+msgid "100% Secure"
+msgstr "100% Secure"
+
+#: template-parts/content/content-single.php:144
+msgid "Safe, secure and fast booking"
+msgstr "Safe, secure and fast booking"
+
+#: template-parts/content/content-single.php:153
+msgid "View all campsites"
+msgstr "View all campsites"
+
+#: template-parts/content/content-single.php:176
+msgid "Some links to other campsites"
+msgstr "Some links to other campsites"

@@ -1,0 +1,124 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: landings\n"
+"POT-Creation-Date: 2020-02-29 12:37+0000\n"
+"PO-Revision-Date: 2020-02-29 12:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-KeywordsList: _;_e;__\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: footer.php:20
+msgid "All Rights reserved"
+msgstr "Tous droits réservés"
+
+#: footer.php:28 header.php:59
+msgid "About Us"
+msgstr "Qui sommes-nous"
+
+#: footer.php:34 header.php:183
+msgid "Privacy Policy"
+msgstr "Politique de confidentialité"
+
+#: header.php:8
+msgid "Campsited - the easy way to book a camping holiday"
+msgstr "La manière simple de réserver des vacances en camping"
+
+#: header.php:53 header.php:120
+msgid "Special offers"
+msgstr "Offres spéciales"
+
+#: header.php:65 header.php:132
+msgid "FAQs"
+msgstr "Questions fréquentes"
+
+#: header.php:71 header.php:138
+msgid "My wish list"
+msgstr "Mes favoris"
+
+#: header.php:77 header.php:144
+msgid "My Booking"
+msgstr "Ma réservation"
+
+#: header.php:83 header.php:150
+msgid "Site sign in"
+msgstr "Connexion au site"
+
+#: header.php:126
+msgid "About us"
+msgstr "Qui sommes-nous"
+
+#: header.php:177
+msgid "Blog"
+msgstr "Blog"
+
+#: header.php:189
+msgid "Customer Terms"
+msgstr "Conditions générales du client"
+
+#: template-parts/content/content-single.php:79
+msgid "Choose from"
+msgstr "Choisissez parmi"
+
+#: template-parts/content/content-single.php:79
+msgid "lots of"
+msgstr "beaucoup de"
+
+#: template-parts/content/content-single.php:79
+msgid "great campsites"
+msgstr "grands campings"
+
+#: template-parts/content/content-single.php:92
+msgid "View all"
+msgstr "Voir tout"
+
+#: template-parts/content/content-single.php:98
+msgid "We are here to help you plan your perfect holiday"
+msgstr "Nous sommes là pour vous aider à planifier vos vacances parfaites"
+
+#: template-parts/content/content-single.php:116
+msgid "Best Prices"
+msgstr "Meilleurs prix"
+
+#: template-parts/content/content-single.php:117
+msgid "No hidden fees"
+msgstr "Pas de frais cachés"
+
+#: template-parts/content/content-single.php:125
+msgid "Largest Choice"
+msgstr "Le plus grand choix"
+
+#: template-parts/content/content-single.php:126
+msgid "Over 10,000 rentals and pitches"
+msgstr "Plus de 10 000 locations et emplacements"
+
+#: template-parts/content/content-single.php:134
+msgid "Thousands of Reviews"
+msgstr "Des milliers d'avis"
+
+#: template-parts/content/content-single.php:135
+msgid "From real guests"
+msgstr "De vrais clients"
+
+#: template-parts/content/content-single.php:143
+msgid "100% Secure"
+msgstr "100% sécurisé"
+
+#: template-parts/content/content-single.php:144
+msgid "Safe, secure and fast booking"
+msgstr "Réservation sûre, sécurisée et rapide"
+
+#: template-parts/content/content-single.php:153
+msgid "View all campsites"
+msgstr "Découvrez tous les campings"
+
+#: template-parts/content/content-single.php:176
+msgid "Some links to other campsites"
+msgstr "Quelques liens vers d‘autres campings"

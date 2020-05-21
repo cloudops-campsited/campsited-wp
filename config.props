@@ -1,0 +1,3 @@
+props = {
+  search_url_prefix: 'https://campsited-apis-prod.herokuapp.com/landings/searchforlanding',
+}

@@ -8,34 +8,26 @@
  */
 
 get_header(); ?>
-			
-	<div class="content">
-	
-		<div class="inner-content grid-x grid-margin-x grid-padding-x">
-	
-		    <main class="main small-12 medium-8 large-8 cell" role="main">
-		    
-			    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-			 
-					<!-- To see additional archive styles, visit the /parts directory -->
-					<?php get_template_part( 'parts/loop', 'archive' ); ?>
-				    
-				<?php endwhile; ?>	
 
-					<?php joints_page_navi(); ?>
-					
-				<?php else : ?>
-											
-					<?php get_template_part( 'parts/content', 'missing' ); ?>
-						
-				<?php endif; ?>
-																								
-		    </main> <!-- end #main -->
-		    
-		    <?php get_sidebar(); ?>
-
-		</div> <!-- end #inner-content -->
-
-	</div> <!-- end #content -->
-
+<main id="main" class="lightgray">
+<div class="grid-container grid-x">
+<div class="cell medium-7">
+<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+   	<?php get_template_part( 'parts/loop', 'archive' ); ?>   	
+<?php endwhile; else : ?>
+	<?php get_template_part( 'parts/content', 'missing' ); ?>
+<?php endif; ?>
+</div>
+<aside class="cell medium-offset-1 medium-4">
+	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
+<?php dynamic_sidebar( 'sidebar1' ); ?>
+<?php else : ?>
+<!-- This content shows up if there are no widgets defined in the backend. -->		
+<div class="alert help">
+<p><?php _e( 'Please activate some Widgets.', 'jointswp' );  ?></p>
+</div>
+<?php endif; ?>
+</aside>
+</div>
+</main> <!-- end #main -->
 <?php get_footer(); ?>

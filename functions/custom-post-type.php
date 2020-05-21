@@ -46,7 +46,7 @@ function custom_post_example() {
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
-			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
+			'supports' => array( 'title', 'page-attributes', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'sticky')
 	 	) /* end of options */
 	); /* end of register post type */
 	
@@ -113,5 +113,5 @@ function custom_post_example() {
     /*
     	looking for custom meta boxes?
     	check out this fantastic tool:
-    	https://github.com/CMB2/CMB2
+    	https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
     */

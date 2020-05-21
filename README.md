@@ -1,19 +1,19 @@
 Currently using Foundation 6.5.3.
 
-## JointsWP Requirements
-JointsWP requires [Node.js](https://nodejs.org) v6.9.x or newer. This doesn't mean you need to understand Node (or even Gulp) - it's just the steps we need to take to make sure all of our development tools are installed. 
+## campsited2020 Requirements
+campsited2020 requires [Node.js](https://nodejs.org) v6.9.x or newer. This doesn't mean you need to understand Node (or even Gulp) - it's just the steps we need to take to make sure all of our development tools are installed. 
 
 ## Getting Started 
-### Download JointsWP and install dependencies with npm 
+### Download campsited2020 and install dependencies with npm 
 ```bash
 $ cd my-wordpress-folder/wp-content/themes/
-$ git clone https://github.com/JeremyEnglert/JointsWP.git
-$ cd JointsWP
+$ git clone https://github.com/cloudops-campsited/campsited-wp.git
+$ cd campsited2020
 $ npm install
 ```
-At this point, JointsWP should be installed and fully running on your local machine. If you prefer to install the theme manually, that will work as well - just be sure to run `npm install` after manually moving the files into the `/themes/` directory.
+At this point, campsited2020 should be installed and fully running on your local machine. If you prefer to install the theme manually, that will work as well - just be sure to run `npm install` after manually moving the files into the `/themes/` directory.
 
-## Working with JointsWP
+## Working with campsited2020
 ### Watching for Changes
 ```bash
 $ npm run watch
