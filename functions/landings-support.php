@@ -32,19 +32,11 @@ add_action( 'after_setup_theme', 'campsited_landings_setup' );
 function getCards() {
 	?>
 		<script>
-			var title = document.getElementById('title').textContent;
-			var post_id = document.getElementById('post_id').textContent;
-			var post_status = document.getElementById('post_status').textContent;
 			var cards_query_string = document.getElementById('cards_query_string').textContent;
-			console.log("post status = " + post_status);
-			var title = document.getElementById('title').textContent;
-			var permalink = document.getElementById('permalink').textContent;
 			var locale = document.getElementById('short-locale').textContent;
-            console.log(title);
-			console.log(permalink);
-			
+
 			var app = document.getElementById('card-holder');
-			
+
 			/*var hj = document.getElementById('_hj_feedback_container');
 			if (hj != null) {
 				hj.setAttribute('style', 'display:none');
@@ -53,11 +45,11 @@ function getCards() {
 			if (chat != null) {
 				chat.setAttribute('style', 'display:none');
 			}
-			
+
 			var smc = document.getElementById('at4-share');
 			if (smc != null) {
 				smc.setAttribute('style', 'display:none');
-			}		*/	
+			}		*/
 
 			var container = document.createElement('div');
 			container.setAttribute('class', 'card-container');
@@ -67,18 +59,13 @@ function getCards() {
 			var script_tag = document.getElementById('cards_js')
 			var search_url_prefix = props.search_url_prefix;
 
-			var landingIdParam = "&landingId="+post_id;
-			var landingStatusParam = "&status="+post_status;
 			var localeParam = "&locale="+locale;
-			var titleParam = "&title="+title;
-			var relativeUrlParam = "&relativeUrl="+permalink;
 
 			var cards_url = search_url_prefix + cards_query_string;
-			console.log("cards_url = "+cards_url);
 
 			var request = new XMLHttpRequest();
-			var theUrl = search_url_prefix + cards_query_string + localeParam + titleParam + relativeUrlParam + landingIdParam + landingStatusParam;
-			console.log(theUrl);
+			var theUrl = search_url_prefix + cards_query_string + localeParam;
+			//console.log(theUrl);
 			request.open('GET', theUrl, true);
 			request.setRequestHeader('Access-Control-Allow-Headers', '*');
 
@@ -88,19 +75,19 @@ function getCards() {
 				var data = JSON.parse(this.responseText);
 
 				if (request.status >= 200 && request.status < 400) {
-					
+
 					/*	Jaime: Serving image from WordPress rather than AWS
 
 					var heroImg = document.getElementById('hero-img-id');
 					if (data.flagShipImgUrl != null) {
 						heroImg.src = data.flagShipImgUrl;
 					}*/
-					
+
 					var campsites = data.campsiteSummaryList;
 					var campsiteCount = data.totalNumberOfCampsites;
 
 					var mapImg = document.getElementById("map-img-id");
-					console.log("Map url src = "+data.mapUrl);
+					//console.log("Map url src = "+data.mapUrl);
 					if (data.mapUrl != null) {
 						mapImg.src = data.mapUrl;
 					}
@@ -110,19 +97,20 @@ function getCards() {
 
 					//var mapBtnLink = document.getElementById("view-all-map-btn-id");
 					//mapBtnLink.setAttribute("href", data.searchUrl);
-          
+
 		      		var viewAllLink = document.getElementById("view-all-btn-id");
    		    		viewAllLink.setAttribute("href", data.searchUrl);
 
-					document.getElementById("campsite-count-id").innerHTML = campsiteCount;
+							var viewAllCtaLink = document.getElementById("view-all-cta-id");
+   		    		viewAllCtaLink.setAttribute("href", data.searchUrl);
+
+				//	document.getElementById("campsite-count-id").innerHTML = campsiteCount;
 
 					campsites.forEach(campsite => {
 
 						var campsiteLink = campsite.campsiteUrl;
 						var cardLink = document.createElement('a');
 						cardLink.href = campsiteLink;
-						
-						console.log("hello");
 
 						var card = document.createElement('div');
 						card.setAttribute('class', 'card');
@@ -208,7 +196,7 @@ function getCards() {
 
 						container.appendChild(cardLink);
 					});
-                    
+
      				// var landingLinks = data.landingLinkList;
 					// if (landingLinks.length > 0) {
 					// 	var linksDiv = document.getElementById("landing-links-div-id");
@@ -228,7 +216,7 @@ function getCards() {
 					// 	var linksHeader = document.getElementById("landing-links-header-id");
 					// 	linksHeader.setAttribute('style', 'display:none');
 					// 	var bottomFiller = document.getElementById("bottom-filler-id");
-					// 	bottomFiller.setAttribute('style', 'display:none');						
+					// 	bottomFiller.setAttribute('style', 'display:none');
 					// }
 				}
 			}
@@ -275,34 +263,6 @@ function get_landing_bottom_content() {
 	return $bottom_content;
 }
 
-function get_links_content() {
-	$full_content = get_the_content(get_the_ID());
-	$break_chars = "#links_section";
-	$links_content = "";
-	if (strpos($full_content, $break_chars) !== false) {
-		$pos = strpos($full_content, $break_chars) + 14;
-		$links_content = substr($full_content, $pos);
-	}
-	return $links_content;
-}
-
-function get_breadcrumb_region_url() {
-	$slash = "/";
-	$region = get_post_meta(get_the_ID(), "region_permalink", true);
-	$url_prefix = get_url_prefix();
-	$url = $url_prefix.$region.$slash;
-	return $url;
-}
-
-function get_breadcrumb_department_url() {
-	$slash = "/";
-	$region = get_post_meta(get_the_ID(), "region", true);
-	$department = get_post_meta(get_the_ID(), "department_permalink", true);
-	$url_prefix = get_url_prefix();
-	$url = $url_prefix.$department.$slash;
-	return $url;
-}
-
 function getBetween($string, $start = "", $end = ""){
     if (strpos($string, $start)) { // required if $start not exist in $string
         $startCharCount = strpos($string, $start) + strlen($start);
@@ -317,24 +277,22 @@ function getBetween($string, $start = "", $end = ""){
     }
 }
 
-function get_url_prefix() {
-	$locale = substr(pll_current_language('locale'), 0, strpos(pll_current_language('locale'), '_'));
-	//echo '<script>console.log("Locale : ' . $locale . '")</script>';
-	
-	//$url_prefix = "/".$locale."/france/";
-	$url_prefix = "https://www.campsited.com/".$locale."/campings-france/";
-	return $url_prefix;
-}
-
-function getlocalisedLink($link) {
-	$locale = substr(pll_current_language('locale'), 0, strpos(pll_current_language('locale'), '_'));
-	$slash = "/";
-	$dotcom = ".com";
-	$newLinkStart = substr($link, 0, strpos($link, '.com/'));
-	$newLinkEnd = substr($link, strpos($link, '.com/')+5, strlen($link));
-	$newLink = $newLinkStart.$dotcom.$slash.$locale.$slash.$newLinkEnd;
-	//echo '<script>console.log("New Link : ' . $newLink . '")</script>';
-	return $newLink;
+function get_destination() {
+	$destination = "";
+	$queryStr=get_custom_field("cards_query_string");
+	if ($queryStr !== null) {
+		if (strpos($queryStr, '?') !== false) {
+			$posStart = strpos($queryStr, '=') + 1;
+			if (strpos($queryStr, '&') !== false) {
+				$posEnd = strpos($queryStr, '&level');
+				$length = $posEnd - $posStart;
+				$destination = substr($queryStr, $posStart, $length);
+			} else {
+				$destination = substr($queryStr, $posStart, strlen($queryStr));
+			}
+		}
+	}
+	return $destination;
 }
 
 function get_widget_url() {
@@ -342,42 +300,8 @@ function get_widget_url() {
 	$slash = "/";
   	$linkStart = "https://www.campsited.com/";
   	$linkEnd = "white_labels/10";
-
-	$destination = "";
-	$queryStr=get_custom_field("cards_query_string");
-	if ($queryStr !== null) {
-		if (strpos($queryStr, '?region=') !== false) {
-			$destination = get_custom_field("region");
-		} else if (strpos($queryStr, '?department=') !== false) {
-			$destination = get_custom_field("department");
-		} else if (strpos($queryStr, '?old_region=') !== false) {
-			$destination = get_custom_field("region");
-		} else if (strpos($queryStr, '?') !== false) {
-			$posStart = strpos($queryStr, '=') + 1;
-			if (strpos($queryStr, '&') !== false) {
-				$posEnd = strpos($queryStr, '&');
-				$destination = substr($queryStr, $posStart, $posEnd);
-			} else {
-				$destination = substr($queryStr, $posStart, strlen($queryStr));
-			}
-		}
-	}
+	$destination = get_destination();
   	$widgetQueryStr = "?query=".$destination;
-	//echo '<script>console.log("Widget Query : ' . $widgetQueryStr . '")</script>';
   	$link = $linkStart.$locale.$slash.$linkEnd.$widgetQueryStr;
   	return $link;
-
-}
-
-function get_country_permalink() {
-	$locale = substr(pll_current_language('locale'), 0, strpos(pll_current_language('locale'), '_'));
-	if (contains('FR', pll_current_language('locale')) == true) {
-		return "https://www.campsited.com/fr/france/campings-en-france/";
-	} else {
-		return "https://www.campsited.com/en/france/campsites-france/";
-	}
-}
-
-function contains($needle, $haystack) {
-    return strpos($haystack, $needle) !== false;
 }

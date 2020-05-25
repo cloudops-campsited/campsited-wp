@@ -10,7 +10,7 @@
 <?php if ( is_active_sidebar( 'landingunderheading' ) ) : ?>
 <?php dynamic_sidebar( 'landingunderheading' ); ?>
 <?php else : ?>
-<!-- This content shows up if there are no widgets defined in the backend. -->		
+<!-- This content shows up if there are no widgets defined in the backend. -->
 <div class="alert help">
 <p><?php _e( 'Please activate some Widgets.', 'jointswp' );  ?></p>
 </div>
@@ -21,10 +21,9 @@
 <?php if ( has_post_thumbnail() ) {
   $attr = array( 'id' => 'hero-img-id', );
   the_post_thumbnail('full', $attr);
-} else {  
-	$region = get_custom_field('region');
-	$region_url = get_breadcrumb_region_url();
-	echo '<img id="hero-img-id" alt="Campings in ', $region, '" src="https://campsited-production.s3-eu-west-1.amazonaws.com/misc/static/landings/default_landing_hero_image.jpg"/></a></li>';
+} else {
+  $destination = get_destination();
+	echo '<img id="hero-img-id" alt="Campings in ', $destination, '" src="https://campsited-production.s3-eu-west-1.amazonaws.com/misc/static/landings/default_landing_hero_image.jpg"/></a></li>';
 }
 ?>
 </div>
@@ -43,11 +42,7 @@
 			</script>
 		</div>
 	</div>
-	<div id="post_id"><?php echo the_ID();?></div>
-	<div id="post_status"><?php echo get_post_status();?></div>
-	<div id="cards_query_string"><?php echo get_custom_field('cards_query_string');?></div>
-	<div id="title"><?php echo the_title();?></div>
-	<div id="permalink"><?php echo the_permalink();?></div>
+  <div id="cards_query_string"><?php echo get_custom_field('cards_query_string');?></div>
 	<div id="short-locale"><?php echo substr(get_locale(), 0, strpos(get_locale(), '_'));?></div>
 </div>
 </section>
@@ -57,15 +52,22 @@
 <div class="grid-x grid-padding-x">
 
 <div id="seo-content" class="small-12 cell">
-<?php $cards_header_text = get_custom_field('cards_header_text');
-if (!is_null($cards_header_text)) {
-	echo '<h2>', $cards_header_text, '</h2>';
-} ?>
-<?php the_content(); ?>
+  <div class="content-header">
+    <?php $cards_header_text = get_custom_field('cards_header_text');
+    if (!is_null($cards_header_text)) {
+    	echo '<h2>', $cards_header_text, '</h2>';
+    } ?>
+  </div>
+  <div class="content-seo">
+    <?php the_content(); ?>
+  </div>
+  <div class="content-header-cta">
+    <a id="view-all-cta-id" href=""><?php _e('View all campsites', 'landings')?></a>
+  </div>
 </div>
 
-<div id="cards-results" class="small-12 medium-8 large-8 cell">
-	<h3><?php _e('Choose from', 'landings')?> <span id="campsite-count-id"><?php _e('lots of', 'landings')?></span> <?php _e('great campsites', 'landings')?></h3>
+<div id="cards-results" class="small-12 medium-9 large-9 cell">
+	<!--h3><?php _e('Choose from', 'landings')?> <span id="campsite-count-id"><?php _e('lots of', 'landings')?></span> <?php _e('great campsites', 'landings')?></h3-->
 	<div id="card-holder" class="card-holder-div"></div>
 	<a id="view-all-btn-id" href="https://www.campsited.com/campsites_search/results?utf8=%E2%9C%93&csf%5Bquery%5D=Occitania&csf%5Bdate_from%5D=&csf%5Bdate_to%5D=&csf%5Badults_number%5D=2&csf%5Bchildren_number%5D=0&csf%5Baccommodation_type%5D=all&csf%5Bmode%5D=county">
 	<p class="text-center view-all-button"><?php _e('View all campsites','landings')?></p>
@@ -73,7 +75,7 @@ if (!is_null($cards_header_text)) {
 </div>
 
 
-<aside class="small-12 medium-4 large-4 cell">
+<aside class="small-12 medium-3 large-3 cell">
 <div class="map-holder">
 	<div class="map-holder-inner">
 		<a id="map-link-id" href="https://www.campsited.com">
